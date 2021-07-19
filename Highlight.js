@@ -5,7 +5,7 @@ import { connectHighlight } from 'react-instantsearch-native';
 export default connectHighlight(
   ({ highlight, attribute, hit, highlightProperty, inverted }) => {
     const parsedHit = highlight({ attribute, hit, highlightProperty });
-    const styles = inverted ? {} : { backgroundColor: '#ffff99' };
+    const styles = inverted ? {} : { backgroundColor: 'white' };
     const highligtedHit = parsedHit.map((part, idx) => {
       if (part.isHighlighted)
         return (

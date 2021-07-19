@@ -120,11 +120,13 @@ export default class App extends React.Component {
                 this.state.category ? [this.state.category] : []
               }
             />
-            <Text style={styles.bestResults}>
-              Best results
-              {this.state.category ? ` in ${this.state.category}` : null}
-            </Text>
-            <View style={styles.suggestionsContainer}>{results}</View>
+            <View style={styles.header}>
+              <Text style={styles.bestResults}>
+                Best results
+                {this.state.category ? ` in ${this.state.category}` : null}
+              </Text>
+              <View style={styles.suggestionsContainer}>{results}</View>
+            </View>
           </Index>
         </InstantSearch>
       </View>
@@ -153,9 +155,9 @@ class SearchBox extends Component {
           }}
           value={this.props.currentRefinement}
           placeholder={'Search a product...'}
-          placeholderTextColor={'black'}
+          placeholderTextColor={'white'}
           clearButtonMode={'always'}
-          underlineColorAndroid={'white'}
+          underlineColorAndroid={'snow'}
           spellCheck={false}
           autoCorrect={false}
           autoCapitalize={'none'}
@@ -320,8 +322,16 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 30,
     flex: 1,
+    backgroundColor: 'cadetblue'
   },
   suggestionsContainer: {
+    flex: 1,
+  },
+  header: {
+    borderWidth: 5,
+    borderColor: 'lightblue',
+    borderTopLeftRadius: 60,
+    borderBottomEndRadius: 60,
     flex: 1,
   },
   algoliaLogo: {
@@ -332,15 +342,20 @@ const styles = StyleSheet.create({
   searchBoxContainer: {
     flexDirection: 'row',
     alignItems: 'stretch',
+    backgroundColor: 'cadetblue',
+    borderWidth: 5,
+    borderBottomEndRadius: 60,
+    borderColor: 'lightblue'
   },
   bestResults: {
-    backgroundColor: 'lightgrey',
     height: 40,
     justifyContent: 'center',
     padding: 10,
+    paddingHorizontal: 40,
+    color: 'white'
   },
   searchBox: {
-    color: 'black',
+    color: 'white',
     height: 50,
     width: 300,
     alignSelf: 'center',
@@ -375,5 +390,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   categoryTextIn: { fontStyle: 'italic' },
-  categoryText: { color: '#cc8008' },
+  categoryText: { color: 'white' },
 });
